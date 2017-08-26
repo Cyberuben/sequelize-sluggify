@@ -1,7 +1,7 @@
 {
   "name": "sequelize-sluggify",
   "description": "Add slugs to Sequelize models",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Ruben Rutten <ruben@rubenrutten.nl>",
   "repository": {
     "type": "git",
