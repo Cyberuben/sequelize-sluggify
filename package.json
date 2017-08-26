@@ -1,27 +1,26 @@
 {
-  "name": "sequelize-slugify",
-  "description": "Add slugs to sequelize models",
-  "version": "0.5.0",
-  "author": "Jarrod Connolly <jarrod@nestedquotes.ca>",
+  "name": "sequelize-sluggify",
+  "description": "Add slugs to Sequelize models",
+  "version": "1.0.0",
+  "author": "Ruben Rutten <ruben@rubenrutten.nl>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jarrodconnolly/sequelize-slugify.git"
+    "url": "https://github.com/Cyberuben/sequelize-sluggify.git"
   },
   "bugs": {
-    "url": "https://github.com/jarrodconnolly/sequelize-slugify/issues"
+    "url": "https://github.com/Cyberuben/sequelize-sluggify/issues"
   },
   "main": "index",
   "keywords": [
     "slug",
     "slugify",
+    "sluggify",
     "sequelize",
     "sequelize-plugin",
     "orm"
   ],
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.3.3",
-    "lodash": "^4.5.1",
     "slug": "^0.9.1"
   },
   "devDependencies": {
@@ -33,6 +32,6 @@
     "sequelize": "^4.6.0"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha ./test/*"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

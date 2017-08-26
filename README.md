@@ -1,14 +1,18 @@
-# sequelize-slugify
+# sequelize-sluggify
 
-[![Build Status](https://travis-ci.org/jarrodconnolly/sequelize-slugify.svg?branch=master)](https://travis-ci.org/jarrodconnolly/sequelize-slugify) [![npm](https://img.shields.io/npm/v/sequelize-slugify.svg)](https://www.npmjs.com/package/sequelize-slugify) [![Dependency Status](https://david-dm.org/jarrodconnolly/sequelize-slugify.svg)](https://david-dm.org/jarrodconnolly/sequelize-slugify) [![Code Climate](https://codeclimate.com/github/jarrodconnolly/sequelize-slugify/badges/gpa.svg)](https://codeclimate.com/github/jarrodconnolly/sequelize-slugify) ![GitHub license](https://img.shields.io/github/license/jarrodconnolly/sequelize-slugify.svg)
+## Important
 
-sequelize-slugify is a model plugin for Sequelize that automatically creates and updates unique slugs for your models.
+This is a fork from [Jarrod Connolly's sequelize-slugify](https://github.com/jarrodconnolly/sequelize-slugify) module. To be able to work with Sequelize version 4, I have rewritten most of it's code. Almost all text below is written by Jarrod Connolly and this version has been rewritten with almost the same API (sluggify seems to be a more used term than slugify), so that it can be used without having to change all code related to slugs.
+
+--------------------
+
+sequelize-sluggify is a model plugin for Sequelize that automatically creates and updates unique slugs for your models.
 
 So far this module has only been tested with the PostgreSQL database.
 
 ## Installation
 
-`npm install sequelize-slugify`
+`npm install sequelize-sluggify`
 
 ## Requirements
 
@@ -20,12 +24,13 @@ slug: {
     unique: true
 }
 ```
+
 ## Options
 
-slugifyModel takes an options object as it's second parameter.
+sluggifyModel takes an options object as it's second parameter.
 
 ```javascript
-SequelizeSlugify.slugifyModel(User, {
+SequelizeSluggify.sluggifyModel(User, {
     source: ['givenName'],
     slugOptions: { lower: true },
     overwrite: false,
@@ -40,6 +45,7 @@ Available Options
 - `slugOptions` - (Default `{lower: true}`) Pass additional options for slug generation as defined by [`slug`](https://github.com/dodo/node-slug).
 - `overwrite` - (Default `TRUE`) Change the slug if the source fields change once the slug has already been built.
 - `column` - (Default `slug`) Specify which column the slug is to be stored into in the model.
+- `reservedSlugs` - (Default `[]`) Specify which slugs should be considered as 'reserved' and will therefor be skipped.
 
 ## Usage Examples
 
@@ -47,7 +53,7 @@ Available Options
 
 ```javascript
 
-var SequelizeSlugify = require('sequelize-slugify');
+var SequelizeSluggify = require('sequelize-sluggify');
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define('User', {
@@ -70,7 +76,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         });
 
-    SequelizeSlugify.slugifyModel(User, {
+    SequelizeSluggify.sluggifyModel(User, {
         source: ['givenName', 'familyName']
     });
 
@@ -83,7 +89,7 @@ module.exports = function(sequelize, DataTypes) {
 
 ```javascript
 
-var SequelizeSlugify = require('sequelize-slugify');
+var SequelizeSluggify = require('sequelize-sluggify');
 
 module.exports = function(sequelize, DataTypes) {
     var Movie = sequelize.define('Movie', {
@@ -102,7 +108,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         });
 
-    SequelizeSlugify.slugifyModel(Movie, {
+    SequelizeSluggify.sluggifyModel(Movie, {
         source: ['title'],
         suffixSource: ['year']
     });
